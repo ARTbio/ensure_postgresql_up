@@ -14,6 +14,6 @@
 
   - action: shell /usr/bin/pg_isready
     register: result
-    until: result.stdout.find("accepting connections") != -1
+    until: result.rc == 0
     retries: 10
     delay: 5
